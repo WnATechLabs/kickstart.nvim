@@ -351,39 +351,31 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>spf', function() builtin.find_files { hidden = true, prompt_title = '[S]earch [P]roject [F]iles' } end, { desc = '[S]earch [P]roject [F]iles' })
+      vim.keymap.set('n', '<leader>spg', function() builtin.live_grep { hidden = true, prompt_title = '[S]earch [P]roject [G]lobally' } end, { desc = '[S]earch [P]roject [G]lobally' })
+      vim.keymap.set('n', '<leader>sgf', function() builtin.git_files { hidden = true, prompt_title = '[S]earch [G]it [F]iles' } end, { desc = '[S]earch [G]it [F]iles' })
+      vim.keymap.set('n', '<leader>ssb', function() builtin.buffers { hidden = true, prompt_title = '[S]earch [S]ession [B]uffers' } end, { desc = '[S]earch [S]ession [B]uffers' })
+      vim.keymap.set('n', '<leader>stf', builtin.current_buffer_fuzzy_find, { desc = '[S]earch [T]his [F]ile' })
+      vim.keymap.set('n', '<leader>cp', builtin.commands, { desc = '[C]ommand [P]alette' })
+      vim.keymap.set('n', '<leader>scw', builtin.grep_string, { desc = '[S]earch [C]urrent [W]ord' })
 
-      -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', function()
-        -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-        builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
-          previewer = false,
-        })
-      end, { desc = '[/] Fuzzily search in current buffer' })
+      vim.keymap.set('n', '<leader>sgb', builtin.git_branches, { desc = '[S]each [G]it [B]ranches' })
+      vim.keymap.set('n', '<leader>sgc', builtin.git_bcommits, { desc = '[S]earch [G]it buffer [C]ommits' })
+      vim.keymap.set('n', '<leader>sgC', builtin.git_commits, { desc = '[S]earch [G]it repo [C]ommits' })
+      vim.keymap.set('n', '<leader>sgs', builtin.git_status, { desc = '[S]earch [G]it [S]tatus' })
+      vim.keymap.set('n', '<leader>sgS', builtin.git_stash, { desc = '[S]earch [G]it [S]tash' })
 
-      -- It's also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = '[S]earch [/] in Open Files' })
+      vim.keymap.set('n', '<leader>skm', builtin.keymaps, { desc = '[S]earch [K]ey[m]aps' })
+      vim.keymap.set('n', '<leader>spd', builtin.diagnostics, { desc = '[S]earch [P]roject [D]iagnostics' })
+      vim.keymap.set('n', '<leader>srs', builtin.resume, { desc = '[S]earch [R]e[S]ume' })
+      vim.keymap.set('n', '<leader>srf', builtin.oldfiles, { desc = '[S]earch [R]ecent [F]iles ("." for repeat)' })
 
       -- Shortcut for searching your Neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
+      vim.keymap.set('n', '<leader>snf', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end, { desc = '[S]earch [N]eovim [F]iles' })
+      -----
+
     end,
   },
 
