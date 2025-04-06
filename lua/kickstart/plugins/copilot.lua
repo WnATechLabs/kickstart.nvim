@@ -25,9 +25,7 @@ return {
     --   replace_keycodes = false
     -- })
 
-    -- possible keymaps
-    vim.keymap.set('i', '<C-m>', '<Plug>(copilot-next)', { desc = "Next LLM suggestion" })
-    -- vim.keymap.set('i', '<C-\\>', '<Plug>(copilot-suggest)')
+    vim.keymap.set('i', '<C-a>', '<Plug>(copilot-next)', { desc = "Next LLM suggestion" })
     -- vim.keymap.set('i', '<M-]>', '<Plug>(copilot-dismiss)')
   end,
 }
