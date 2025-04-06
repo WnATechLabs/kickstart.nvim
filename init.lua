@@ -43,8 +43,11 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.number = true
 -- Make relative line numbers default
 vim.opt.relativenumber = true
+
+vim.opt.wrap = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -753,6 +756,9 @@ require('lazy').setup({
           --  This will auto-import if your LSP supports it.
           --  This will expand snippets if the LSP sent a snippet.
           ['<C-y>'] = cmp.mapping.confirm { select = true },
+          ['<Tab>'] = nil,
+          ['<S-Tab>'] = nil,
+
 
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
@@ -904,11 +910,21 @@ require('lazy').setup({
   require 'kickstart.plugins.flutter-tools',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.harpoon',
+  require 'kickstart.plugins.markdown-preview',
+  require 'kickstart.plugins.vim-tmux-navigator',
+  require 'kickstart.plugins.copilot',
+  require 'kickstart.plugins.codecompanion',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+
+
+  -- Themes
+  require 'kickstart.themes.pop-punk',
+  require 'kickstart.themes.decay',
+  require 'kickstart.themes.adwaita',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -942,5 +958,11 @@ require('lazy').setup({
   },
 })
 
+-- Pick a colorscheme
+vim.cmd.colorscheme "adwaita"
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+
+require 'kickstart.config.keymaps'
