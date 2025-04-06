@@ -200,13 +200,47 @@ require('lazy').setup({
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
+      signs                        = {
+        add          = { text = '│' },
+        change       = { text = '│' },
+        delete       = { text = '_' },
+        topdelete    = { text = '‾' },
         changedelete = { text = '~' },
+        untracked    = { text = '┆' },
       },
+      signcolumn                   = true, -- Toggle with `:Gitsigns toggle_signs`
+      numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
+      linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+      word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+      watch_gitdir                 = {
+        interval = 1000,
+        follow_files = true
+      },
+      attach_to_untracked          = true,
+      current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame_opts      = {
+        virt_text = true,
+        virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+        delay = 1000,
+        ignore_whitespace = false,
+      },
+      current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
+      sign_priority                = 6,
+      update_debounce              = 100,
+      status_formatter             = nil, -- Use default
+      max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+      preview_config               = {
+        -- Options passed to nvim_open_win
+        border = 'single',
+        style = 'minimal',
+        relative = 'cursor',
+        row = 0,
+        col = 1
+      },
+      yadm                         = {
+        enable = false
+      },
+
     },
   },
 
@@ -224,7 +258,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -270,7 +304,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>c', group = '[C]ode',     mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
@@ -310,7 +344,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -357,10 +391,18 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>spf', function() builtin.find_files { hidden = true, prompt_title = '[S]earch [P]roject [F]iles' } end, { desc = '[S]earch [P]roject [F]iles' })
-      vim.keymap.set('n', '<leader>spg', function() builtin.live_grep { hidden = true, prompt_title = '[S]earch [P]roject [G]lobally' } end, { desc = '[S]earch [P]roject [G]lobally' })
-      vim.keymap.set('n', '<leader>sgf', function() builtin.git_files { hidden = true, prompt_title = '[S]earch [G]it [F]iles' } end, { desc = '[S]earch [G]it [F]iles' })
-      vim.keymap.set('n', '<leader>ssb', function() builtin.buffers { hidden = true, prompt_title = '[S]earch [S]ession [B]uffers' } end, { desc = '[S]earch [S]ession [B]uffers' })
+      vim.keymap.set('n', '<leader>spf',
+        function() builtin.find_files { hidden = true, prompt_title = '[S]earch [P]roject [F]iles' } end,
+        { desc = '[S]earch [P]roject [F]iles' })
+      vim.keymap.set('n', '<leader>spg',
+        function() builtin.live_grep { hidden = true, prompt_title = '[S]earch [P]roject [G]lobally' } end,
+        { desc = '[S]earch [P]roject [G]lobally' })
+      vim.keymap.set('n', '<leader>sgf',
+        function() builtin.git_files { hidden = true, prompt_title = '[S]earch [G]it [F]iles' } end,
+        { desc = '[S]earch [G]it [F]iles' })
+      vim.keymap.set('n', '<leader>ssb',
+        function() builtin.buffers { hidden = true, prompt_title = '[S]earch [S]ession [B]uffers' } end,
+        { desc = '[S]earch [S]ession [B]uffers' })
       vim.keymap.set('n', '<leader>stf', builtin.current_buffer_fuzzy_find, { desc = '[S]earch [T]his [F]ile' })
       vim.keymap.set('n', '<leader>cp', builtin.commands, { desc = '[C]ommand [P]alette' })
       vim.keymap.set('n', '<leader>scw', builtin.grep_string, { desc = '[S]earch [C]urrent [W]ord' })
@@ -381,7 +423,6 @@ require('lazy').setup({
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim [F]iles' })
       -----
-
     end,
   },
 
@@ -410,7 +451,7 @@ require('lazy').setup({
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
