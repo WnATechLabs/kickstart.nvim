@@ -26,6 +26,6 @@ return {
     -- })
 
     vim.keymap.set('i', '<C-a>', '<Plug>(copilot-next)', { desc = "Next LLM suggestion" })
-    -- vim.keymap.set('i', '<M-]>', '<Plug>(copilot-dismiss)')
+    vim.keymap.set('i', '<M-]>', '<Plug>(copilot-dismiss)')
   end,
 }
