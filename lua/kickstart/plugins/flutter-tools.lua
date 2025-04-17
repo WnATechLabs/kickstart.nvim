@@ -58,7 +58,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_colombia_dev.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "colombiaDev"
@@ -69,7 +69,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_colombia_prod.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "colombiaProd"
@@ -81,7 +81,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_peru_dev.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "peruDev"
@@ -92,7 +92,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_peru_prod.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "peruProd"
@@ -104,7 +104,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_bolivia_dev.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "boliviaDev"
@@ -115,7 +115,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_bolivia_prod.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "boliviaProd"
@@ -127,7 +127,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_cam_dev.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "centroamericaDev"
@@ -138,7 +138,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_cam_prod.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "centroamericaProd"
@@ -150,7 +150,7 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_chile_dev.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
                                 "chileDev"
@@ -161,10 +161,10 @@ return {
                             request = "launch",
                             type = "dart",
                             flutterMode = "debug",
-                            program = "./lib/main_chile_prod.dart",
+                            program = "./lib/main.dart",
                             args = {
                                 "--flavor",
-                                "colombiaProd"
+                                "chileProd"
                             }
                         },
                         -- Cinemark end
