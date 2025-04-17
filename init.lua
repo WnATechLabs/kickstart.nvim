@@ -944,7 +944,6 @@ require('lazy').setup({
   --
   require 'kickstart.plugins.auto-save',
   require 'kickstart.plugins.nvim-tree',
-  require 'kickstart.plugins.flutter-tools',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.harpoon',
   require 'kickstart.plugins.markdown-preview',
@@ -959,6 +958,11 @@ require('lazy').setup({
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+
+  -- TODO: move language specific plugins to a different folder
+  -- Language specific plugins
+  require 'kickstart.plugins.flutter-tools',
+  require 'kickstart.plugins.typescript-tools',
 
 
   -- Themes
