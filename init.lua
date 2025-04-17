@@ -948,6 +948,7 @@ require('lazy').setup({
   require 'kickstart.plugins.vim-tmux-navigator',
   require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.codecompanion',
+  require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.vim-dadbod-ui',
   require 'kickstart.plugins.nvim-surround',
   -- require 'kickstart.plugins.indent_line',
