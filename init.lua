@@ -953,6 +953,7 @@ require('lazy').setup({
   require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.vim-dadbod-ui',
   require 'kickstart.plugins.nvim-surround',
+  require 'kickstart.plugins.comment',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
