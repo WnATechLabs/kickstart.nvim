@@ -1,7 +1,7 @@
 -- vim-dadbod-ui
 -- https://github.com/kristijanhusak/vim-dadbod-ui
 
--- WARNING: Make sure to install the needed drivers
+-- WARNING: Make sure to install needed sql drivers
 return {
   'kristijanhusak/vim-dadbod-ui',
   dependencies = {
