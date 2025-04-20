@@ -67,6 +67,7 @@ vim.opt.showmode = false
 vim.opt.breakindent = true
 
 -- Save undo history
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
@@ -954,6 +955,9 @@ require('lazy').setup({
   require 'kickstart.plugins.nvim-surround',
   require 'kickstart.plugins.comment',
   require 'kickstart.plugins.nvim-notify',
+  require 'kickstart.plugins.vim-fugitive',
+  require 'kickstart.plugins.vim-flog',
+  require 'kickstart.plugins.undotree',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
