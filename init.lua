@@ -958,6 +958,7 @@ require('lazy').setup({
   require 'kickstart.plugins.vim-fugitive',
   require 'kickstart.plugins.vim-flog',
   require 'kickstart.plugins.undotree',
+  require 'kickstart.plugins.zen-mode',
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
