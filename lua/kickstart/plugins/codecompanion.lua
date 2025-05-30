@@ -18,7 +18,12 @@ return {
         },
         cmd = {
           adapter = "copilot",
-        }
+        },
+        slash_commands = {
+          buffer = {
+            provider = "telescope", -- must be one of: "telescope", "fzf_lua", "mini_pick", or "snacks"
+          },
+        },
       },
     })
   end,

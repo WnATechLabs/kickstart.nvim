@@ -65,6 +65,12 @@ vim.opt.showmode = false
 
 -- Enable break indent
 vim.opt.breakindent = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 -- Save undo history
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -872,7 +878,7 @@ require('lazy').setup({
   },
 
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim',              event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -959,6 +965,9 @@ require('lazy').setup({
   require 'kickstart.plugins.vim-flog',
   require 'kickstart.plugins.undotree',
   require 'kickstart.plugins.zen-mode',
+
+  -- move to its own file
+  { 'hiphish/rainbow-delimiters.nvim' },
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
